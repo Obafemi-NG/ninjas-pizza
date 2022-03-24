@@ -13,10 +13,7 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title> My  PHP  </title>
-</head>
-<body>
+    <?php require('template/header.php') ?>
     
-</body>
+    <?php require('template/footer.php') ?>
 </html>
