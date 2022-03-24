@@ -14,6 +14,9 @@
             margin: 20px auto;
             padding: 20px;
         }
+        .error{
+            font-size: 12px;
+        }
      </style>
 </head>
 <body class="grey lighten-4 ">
