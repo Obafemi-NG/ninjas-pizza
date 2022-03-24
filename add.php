@@ -32,6 +32,12 @@
                 $error['ingredients'] = 'Enter ingredients separated by commas. ';
             }
         }
+
+        if(array_filter($error)){
+            // return;
+        } else {
+            header('Location: index.php ');
+        }
     };
 
 
