@@ -4,7 +4,6 @@
 
     //writing a query for the database.
     $sql = 'SELECT id, title, ingredients FROM pizzas ORDER BY created_at';
-
     //making a query to the database.
     $result = mysqli_query($conn, $sql);
 
@@ -43,7 +42,7 @@
                                 </ul>
                             </div>
                             <div class="card-action right-align">
-                                <a href="#" class="brand-text" > more info </a>
+                                <a href="/tutorial/details.php?id=<?php echo $pizza['id'] ?> " class="brand-text" > more info </a>
                             </div>
                         </div>
                     </div>

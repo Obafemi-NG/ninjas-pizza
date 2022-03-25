@@ -42,7 +42,7 @@
         if(array_filter($error)){
             // echo 'error in the form';
         } else{
-            // re-assinging the email, title and ingredients to that value inputed by the users as at the time the submit button was clicked
+            // re-assinging the email, title and ingredients to that value inputed by the users as at the time the submit button was clicked while also protecting it from malicilous inputs.
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $title = mysqli_real_escape_string($conn, $_POST['title']);
             $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
