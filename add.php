@@ -1,8 +1,14 @@
 <?php 
+    //connecting to the SQL db.
+    include('config/db_connect.php');
+
+    //setting an initial value of empty strings for all the input fields.
     $email = $title = $ingredients = '';
+
+    //setting an initial empty array for any errors that may be incurred during the course of filling the form.
     $error = ['email' => '', 'title' => '', 'ingredients' => '' ];
 
-    if(isset($_POST['submit '])){
+    if(isset($_POST['submit'])){
         // validation for an empty email
         if(empty($_POST['email'])){
             $error['email'] = 'An email is required <br /> ';
@@ -34,10 +40,25 @@
         }
 
         if(array_filter($error)){
-            // return;
-        } else {
-            header('Location: index.php ');
+            // echo 'error in the form';
+        } else{
+            // re-assinging the email, title and ingredients to that value inputed by the users as at the time the submit button was clicked
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
+            $ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
+    
+            //creating sql
+            $sql = "INSERT INTO pizzas(title, email, ingredients) VALUES('$title','$email','$ingredients')";
+    
+            if(mysqli_query($conn, $sql)){
+                //success
+                header('Location: index.php ');
+            } else {
+                //error
+                echo 'query error' . mysqli_error($conn);
+            }
         }
+
     };
 
 

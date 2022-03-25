@@ -1,13 +1,9 @@
 <?php 
 
-    //creating a connection to the SQL database.
-    $conn = mysqli_connect('localhost', 'hezcode', 'olorosam70', 'pizza_ninjas');
-    if(!$conn){
-        echo 'An error occured' . mysqli_connect_error();
-    };
+    include('config/db_connect.php');
 
     //writing a query for the database.
-    $sql = 'SELECT * FROM pizzas ORDER BY created_at';
+    $sql = 'SELECT id, title, ingredients FROM pizzas ORDER BY created_at';
 
     //making a query to the database.
     $result = mysqli_query($conn, $sql);
