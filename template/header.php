@@ -22,10 +22,10 @@
 <body class="grey lighten-4 ">
     <nav class="white z-depth-0" >
         <div class="container">
-            <a href="#" class=" left brand-logo brand-text" > Ninja Pizza </a>
+            <a href="/tutorial" class=" left brand-logo brand-text" > Ninja Pizza </a>
             <ul id = 'nav-mobile' class="right hide-on-small-and-down" >
                 <li>
-                    <a href="#" class="btn brand z-depth-0" >
+                    <a href="/tutorial/add.php" class="btn brand z-depth-0" >
                         Add a Pizza
                     </a>
                 </li>

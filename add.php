@@ -2,7 +2,7 @@
     $email = $title = $ingredients = '';
     $error = ['email' => '', 'title' => '', 'ingredients' => '' ];
 
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit '])){
         // validation for an empty email
         if(empty($_POST['email'])){
             $error['email'] = 'An email is required <br /> ';
