@@ -1,5 +1,23 @@
 <?php 
+    //CONNECTING TO THE DATABASE.
     include('config/db_connect.php');
+
+    //DELETE PIZZA FROM DATABASE.
+    if(isset($_POST['delete'])){
+        $id_to_delete = mysqli_real_escape_string($conn, $_POST['idToDelete']);
+
+        //CREATING THE SQL.
+        $sql = "DELETE FROM pizzas where id = $id_to_delete";
+
+        if(mysqli_query($conn, $sql)){
+            //success
+            header('Location: index.php');
+        } else {
+            //error
+            echo 'Query error: ' . mysqli_error($conn, $sql);
+        }
+    }
+
     if(isset($_GET['id'])){
         $id = mysqli_real_escape_string($conn, $_GET['id']);
 
@@ -29,8 +47,16 @@
             <p> Created On: <?php echo htmlspecialchars( date($pizza['created_at']) ) ?> </p>
             <h4>Ingredients:</h4>
             <p> <?php echo htmlspecialchars($pizza['ingredients']) ?> </p>
+
+            <!-- Delete Form !-->
+            <form action="details.php" method="POST">
+                <input type="hidden" name="idToDelete" value=" <?php echo htmlspecialchars($pizza['id']) ?> " >
+                <input type="submit" name="delete" value="Delete" class="btn brand z-depth-0" >
+            </form>
+
             <?php else: ?>
-                
+                <h3>No such pizza exists!</h3>
+                <a href="/tutorial" class="brand-text" > Go back home</a>
         <?php endif; ?>
     </div>
     <!-- <h4>Details!</h4> -->
